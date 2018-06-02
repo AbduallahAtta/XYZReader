@@ -1,0 +1,56 @@
+<!-- File created by the Android Action Bar Style Generator
+
+     Copyright (C) 2012 readyState Software Ltd
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+    </style>
+
+    <style name="FABStyle">
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+        <item name="android:contentDescription">@string/action_share</item>
+        <item name="elevation">@dimen/fab_elevation</item>
+    </style>
+
+    <style name="TextListStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingEnd">@dimen/text_default_padding_end</item>
+        <item name="android:paddingStart">@dimen/text_default_padding_start</item>
+        <item name="android:paddingTop">@dimen/text_padding_top</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+    </style>
+
+    <style name="CardViewListStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/card_layout_margin</item>
+        <item name="android:layout_marginEnd">@dimen/card_margin_end</item>
+        <item name="android:layout_marginStart">@dimen/card_margin_start</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">
+            @animator/card_view_lift_on_touch
+        </item>
+    </style>
+</resources>

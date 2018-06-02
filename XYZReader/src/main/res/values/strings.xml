@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">XYZ Reader</string>
+
+    <string name="action_refresh">Refresh</string>
+    <string name="action_share">Share</string>
+
+    <string name="image_article_transition">ImageArticleTransition</string>
+    <string name="error_message">Error occurred</string>
+    <string name="article_body_text">this is a long line text</string>
+    <string name="article_date_text">31 of May 2018</string>
+    <string name="article_title_text">This is a Headline</string>
+    <string name="article_author_text">William Shakespeare</string>
+    <string name="article_image_content_description">Article Image</string>
+    <string name="article_image_list_content_description">Article Thumbnail</string>
+    <string name="share_article_text">Share Article</string>
+</resources>

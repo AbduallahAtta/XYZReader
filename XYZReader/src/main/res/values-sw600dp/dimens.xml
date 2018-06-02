@@ -1,0 +1,14 @@
+<resources>
+    <!-- detail -->
+    <dimen name="detail_title_text_size">42sp</dimen>
+    <dimen name="detail_body_text_size">20sp</dimen>
+    <dimen name="fab_margin">24dp</dimen>
+    <dimen name="card_corner_radius">2dp</dimen>
+    <dimen name="card_minimum_elevation">1dp</dimen>
+    <dimen name="card_layout_margin">8dp</dimen>
+    <dimen name="card_margin_start">16dp</dimen>
+    <dimen name="image_default_height">220dp</dimen>
+    <dimen name="collapsing_toolbar_height">380dp</dimen>
+    <dimen name="collapsing_toolbar_expanded_title_margin_start">48dp</dimen>
+    <integer name="columns_count_list">3</integer>
+</resources>

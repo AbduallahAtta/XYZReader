@@ -1,0 +1,52 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/detail_card_max_width"
+    android:clipToPadding="false"
+    android:fillViewport="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/articleDetailsTitleAuthorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/oswald"
+            android:paddingEnd="@dimen/article_title_text_padding_end"
+            android:paddingStart="@dimen/article_title_text_padding_start"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/detail_title_text_size"
+            tools:text="@string/article_title_text" />
+
+        <TextView
+            android:id="@+id/articlePublishedDateTetView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/archivo_narrow"
+            android:paddingEnd="@dimen/article_date_text_padding_end"
+            android:paddingStart="@dimen/article_date_padding_start"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="@dimen/detail_date_text_size"
+            tools:text="@string/article_date_text" />
+
+        <TextView
+            android:id="@+id/articleDetailsBodyTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:fontFamily="@font/oxygen"
+            android:paddingEnd="@dimen/article_body_text_padding_end"
+            android:paddingStart="@dimen/article_body_text_padding_start"
+            android:paddingTop="@dimen/article_body_text_padding_top"
+            android:textColor="@color/secondaryTextColor"
+            android:textColorLink="@color/secondaryDarkColor"
+            android:textSize="@dimen/detail_body_text_size"
+            tools:text="@string/article_body_text" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
