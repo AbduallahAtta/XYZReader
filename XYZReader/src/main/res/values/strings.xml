@@ -14,4 +14,5 @@
     <string name="article_image_content_description">Article Image</string>
     <string name="article_image_list_content_description">Article Thumbnail</string>
     <string name="share_article_text">Share Article</string>
+    <string name="missing_connection_message">Please check your Internet connection and try again</string>
 </resources>

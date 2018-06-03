@@ -2,12 +2,17 @@ package com.example.xyzreader.ui;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +43,8 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
 
+    @BindView(R.id.articleListCoordinatorLayout)
+    CoordinatorLayout mArticlesListParentLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +52,8 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
         setContentView(R.layout.activity_article_list);
         ButterKnife.bind(this);
         if (savedInstanceState == null) {
-            startService(new Intent(this, AddItems.class));
+            initLoader();
         }
-
-        getSupportLoaderManager().initLoader(0, null, this);
     }
 
     @NonNull
@@ -57,9 +62,29 @@ public class ArticleListActivity extends AppCompatActivity implements LoaderMana
         return ArticleLoader.newAllArticlesInstance(this);
     }
 
+    private boolean isThereInternetConnection() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
+    }
+
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-        deployArticles(data);
+        if (data != null && data.getCount() > 0) {
+            deployArticles(data);
+        } else if (isThereInternetConnection()) {
+            addArticlesToDatabase();
+        } else {
+            Snackbar.make(mArticlesListParentLayout, R.string.missing_connection_message, Snackbar.LENGTH_LONG).show();
+        }
+    }
+
+    private void initLoader() {
+        getSupportLoaderManager().initLoader(0, null, this);
+    }
+
+    private void addArticlesToDatabase() {
+        startService(new Intent(this, AddItems.class));
     }
 
     private void deployArticles(Cursor data) {

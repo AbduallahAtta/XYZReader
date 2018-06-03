@@ -3,11 +3,8 @@ package com.example.xyzreader.data;
 import android.app.IntentService;
 import android.content.ContentProviderOperation;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
 import android.content.OperationApplicationException;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
@@ -37,15 +34,8 @@ public class AddItems extends IntentService {
         addToDatabase();
     }
 
-    private boolean isThereInternetConnection() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        return connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
-    }
 
     private void addToDatabase() {
-        if (!isThereInternetConnection())
-            return;
 
         ArrayList<ContentProviderOperation> cpo = new ArrayList<>();
 
